@@ -1,0 +1,5 @@
+NODE_ENV=development
+PORT=3333
+
+REACT_APP_NAME="GoFinances"
+REACT_APP_API_URL=http://localhost:5000/api

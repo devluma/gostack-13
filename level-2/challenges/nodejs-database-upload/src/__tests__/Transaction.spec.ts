@@ -13,11 +13,11 @@ let connection: Connection;
 describe('Transaction', () => {
   beforeAll(async () => {
     connection = await createConnection('test-connection');
-    
+
     await connection.query('DROP TABLE IF EXISTS transactions');
     await connection.query('DROP TABLE IF EXISTS categories');
     await connection.query('DROP TABLE IF EXISTS migrations');
-    
+
     await connection.runMigrations();
   });
 
@@ -34,28 +34,28 @@ describe('Transaction', () => {
   });
 
   it('should be able to list transactions', async () => {
-    await request(app).post('/transactions').send({
+    await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
       category: 'Salary',
     });
 
-    await request(app).post('/transactions').send({
+    await request(app).post('/api/transactions').send({
       title: 'April Salary',
       type: 'income',
       value: 4000,
       category: 'Salary',
     });
 
-    await request(app).post('/transactions').send({
+    await request(app).post('/api/transactions').send({
       title: 'Macbook',
       type: 'outcome',
       value: 6000,
       category: 'Eletronics',
     });
 
-    const response = await request(app).get('/transactions');
+    const response = await request(app).get('/api/transactions');
 
     expect(response.body.transactions).toHaveLength(3);
     expect(response.body.balance).toMatchObject({
@@ -68,7 +68,7 @@ describe('Transaction', () => {
   it('should be able to create new transaction', async () => {
     const transactionsRepository = getRepository(Transaction);
 
-    const response = await request(app).post('/transactions').send({
+    const response = await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
@@ -94,7 +94,7 @@ describe('Transaction', () => {
     const transactionsRepository = getRepository(Transaction);
     const categoriesRepository = getRepository(Category);
 
-    const response = await request(app).post('/transactions').send({
+    const response = await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
@@ -135,7 +135,7 @@ describe('Transaction', () => {
 
     const insertedCategoryId = identifiers[0].id;
 
-    await request(app).post('/transactions').send({
+    await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
@@ -156,14 +156,14 @@ describe('Transaction', () => {
   });
 
   it('should not be able to create outcome transaction without a valid balance', async () => {
-    await request(app).post('/transactions').send({
+    await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
       category: 'Salary',
     });
 
-    const response = await request(app).post('/transactions').send({
+    const response = await request(app).post('/api/transactions').send({
       title: 'iPhone',
       type: 'outcome',
       value: 4500,
@@ -182,14 +182,14 @@ describe('Transaction', () => {
   it('should be able to delete a transaction', async () => {
     const transactionsRepository = getRepository(Transaction);
 
-    const response = await request(app).post('/transactions').send({
+    const response = await request(app).post('/api/transactions').send({
       title: 'March Salary',
       type: 'income',
       value: 4000,
       category: 'Salary',
     });
 
-    await request(app).delete(`/transactions/${response.body.id}`);
+    await request(app).delete(`/api/transactions/${response.body.id}`);
 
     const transaction = await transactionsRepository.findOne(response.body.id);
 
@@ -202,7 +202,9 @@ describe('Transaction', () => {
 
     const importCSV = path.resolve(__dirname, 'import_template.csv');
 
-    await request(app).post('/transactions/import').attach('file', importCSV);
+    await request(app)
+      .post('/api/transactions/import')
+      .attach('file', importCSV);
 
     const transactions = await transactionsRepository.find();
     const categories = await categoriesRepository.find();
