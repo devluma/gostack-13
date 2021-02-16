@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "gostack-challenge-02",
   "version": "1.0.0",
   "main": "src/server.js",
   "license": "MIT",
