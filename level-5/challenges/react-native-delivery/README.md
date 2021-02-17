@@ -8,7 +8,9 @@ Nesse desafio, você irá desenvolver mais uma aplicação, a GoRestaurant, só 
 Essa será uma aplicação que irá se conectar a uma Fake API, e exibir e filtrar os pratos de comida da API e permitir a criação de novos pedidos.
 
 # Fake API
+```bash
 yarn json-server --watch server.json --port 5001
+```
 
 # Layout Figma
 [GoRestaurant Mobile](https://www.figma.com/file/cHzfYrUBgdzp1XrRuUpggk/GoRestaurant-Mobile?node-id=1603%3A448)
