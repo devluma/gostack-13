@@ -8,7 +8,9 @@ Nesse desafio, você irá desenvolver mais uma aplicação, a GoRestaurant. Agor
 Essa será uma aplicação que irá se conectar a uma fake API, e exibir os pratos de comida criados e permitir a criação, remoção e atualização desses pratos.
 
 # Fake API
+```bash
 yarn json-server --watch server.json --port 5001
+```
 
 # Layout Figma
 [GoRestaurant Web](https://www.figma.com/file/1lK6AVCPybtWeBLCH8B08N/GoRestaurant?node-id=0%3A1)
