@@ -1,5 +1,4 @@
 # Conceitos do ReactJS
-GoStack13 Course Project : Level 01 - Frontend ReactJS
 
 Nível 01 - Frontend ReactJS <br />
 Desafio 03: Conceitos do ReactJS
