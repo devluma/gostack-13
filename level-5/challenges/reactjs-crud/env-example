@@ -1,0 +1,5 @@
+NODE_ENV=development
+PORT=3333
+
+REACT_APP_NAME="GoRestaurant Web"
+REACT_APP_API_URL=http://localhost:5001

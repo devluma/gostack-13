@@ -1,2 +1,9 @@
-# gostack13-level1-mobile
-GoStack13 Course Project : Level 01 - Mobile React Native
+# Conceitos do React Native
+
+Nível 01 - Mobile React Native <br />
+Desafio 04: Conceitos do React Native
+
+Nesse desafio, você deve criar uma aplicação para treinar o que você aprendeu até agora no React-Native!
+
+# Instruções
+[Link das Instruções](https://github.com/Rocketseat/bootcamp-gostack-desafios/tree/master/desafio-conceitos-react-native)

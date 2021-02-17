@@ -1,0 +1,6 @@
+ENV=development
+PORT=3333
+
+APP_NAME="GoRestaurant Mobile"
+API_URL=http://localhost:5001
+API_TOKEN=EISmH6oeHQb_oSlyJFSwTeZiapg6znNB
