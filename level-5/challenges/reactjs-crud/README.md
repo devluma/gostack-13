@@ -1,6 +1,6 @@
 # GoRestaurant Web
 
-Nível 05 - Front-end, Back-end e Mobile
+Nível 05 - Front-end, Back-end e Mobile <br />
 Desafio 10: GoRestaurant Web
 
 Nesse desafio, você irá desenvolver mais uma aplicação, a GoRestaurant. Agora você irá praticar o que você aprendeu até agora no React.js junto com TypeScript, praticando o conceito de CRUD (Create, Read, Update, Delete).
